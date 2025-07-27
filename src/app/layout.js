@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { Poppins } from 'next/font/google';
-import BootstrapClient from './components/bootstrapClient';
+import BootstrapClient from '../components/bootstrapClient';
 import { Toaster } from 'react-hot-toast';
 
 // Load font

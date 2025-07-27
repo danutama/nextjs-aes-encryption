@@ -1,10 +1,10 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import DropZone from '../components/DropZone';
-import InputKey from '../components/InputKey';
-import Footer from '../components/Credit';
-import { encryptFile, decryptFile } from '../utils/crypto';
+import DropZone from '../../components/DropZone';
+import InputKey from '../../components/InputKey';
+import Footer from '../../components/Credit';
+import { encryptFile, decryptFile } from '../../utils/crypto';
 import toast from 'react-hot-toast';
 
 const MAX_FILE_SIZE_MB = 200;
