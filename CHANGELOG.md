@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/danutama/nextjs-aes-encryption/compare/v1.2.0...v1.2.1) (2025-07-27)
+
+
+### Bug Fixes
+
+* **ui:** fix incorrect primary color in theme ([c0b42c0](https://github.com/danutama/nextjs-aes-encryption/commit/c0b42c0f08be06ff497317733531d28b4ce3a536))
+
 ## [1.2.0](https://github.com/danutama/nextjs-aes-encryption/compare/v1.1.1...v1.2.0) (2025-07-27)
 
 
