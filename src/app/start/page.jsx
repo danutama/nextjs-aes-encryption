@@ -5,6 +5,10 @@ import DropZone from '../components/DropZone';
 import InputKey from '../components/InputKey';
 import Footer from '../components/Credit';
 import { encryptFile, decryptFile } from '../utils/crypto';
+import toast from 'react-hot-toast';
+
+const MAX_FILE_SIZE_MB = 200;
+const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 
 export default function EncryptionPage() {
   const [file, setFile] = useState(null);
@@ -29,6 +33,22 @@ export default function EncryptionPage() {
     }
   };
 
+  const handleEncryptClick = () => {
+    if (file && file.size > MAX_FILE_SIZE_BYTES) {
+      toast.error(`File too large. Max allowed size is ${MAX_FILE_SIZE_MB}MB`);
+      return;
+    }
+    encryptFile(file, fileName, privateKey);
+  };
+
+  const handleDecryptClick = () => {
+    if (file && file.size > MAX_FILE_SIZE_BYTES) {
+      toast.error(`File too large. Max allowed size is ${MAX_FILE_SIZE_MB}MB`);
+      return;
+    }
+    decryptFile(file, fileName, privateKey);
+  };
+
   return (
     <div className="d-flex flex-column justify-content-center">
       <div className="text-center mb-4">
@@ -48,10 +68,10 @@ export default function EncryptionPage() {
           <InputKey privateKey={privateKey} setPrivateKey={setPrivateKey} />
 
           <div className="d-flex justify-content-sm-center justify-content-between gap-sm-2 gap-1 mt-4">
-            <button className="btn btn-primary" onClick={() => encryptFile(file, fileName, privateKey)}>
+            <button className="btn btn-primary" onClick={handleEncryptClick}>
               <i className="bi bi-lock-fill"></i> Encrypt
             </button>
-            <button className="btn btn-primary" onClick={() => decryptFile(file, fileName, privateKey)}>
+            <button className="btn btn-primary" onClick={handleDecryptClick}>
               <i className="bi bi-unlock-fill"></i> Decrypt
             </button>
             <button className="btn btn-refresh" onClick={handleRefresh}>

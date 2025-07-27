@@ -3,15 +3,20 @@
 import CryptoJS from 'crypto-js';
 import toast from 'react-hot-toast';
 
+const MAX_FILE_SIZE_MB = 200;
+const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
 /**
- * Encrypt a file using AES encryption
- * @param {File} file - The file to encrypt
- * @param {string} fileName - Output file name
- * @param {string} privateKey - Secret key (16, 24, or 32 chars)
+ * Encrypt a file
  */
 export function encryptFile(file, fileName, privateKey) {
   if (!file) return toast.error('Please select a file first');
-  if (![16, 24, 32].includes(privateKey.length)) return toast.error('Key length must be 16, 24, or 32 characters');
+  if (![16, 24, 32].includes(privateKey.length)) {
+    return toast.error('Key length must be 16, 24, or 32 characters');
+  }
+  if (file.size > MAX_FILE_SIZE_BYTES) {
+    return toast.error(`File too large. Max allowed size is ${MAX_FILE_SIZE_MB}MB`);
+  }
 
   const reader = new FileReader();
   reader.onload = () => {
@@ -48,15 +53,19 @@ export function encryptFile(file, fileName, privateKey) {
 }
 
 /**
- * Decrypt a file previously encrypted with `encryptFile`
- * @param {File} file - The encrypted file
- * @param {string} fileName - Original file name with `.encrypted` extension
- * @param {string} privateKey - Secret key
+ * Decrypt a previously encrypted file
  */
 export function decryptFile(file, fileName, privateKey) {
   if (!file) return toast.error('Please select a file first');
-  if (![16, 24, 32].includes(privateKey.length)) return toast.error('Key length must be 16, 24, or 32 characters');
-  if (!fileName.endsWith('.encrypted')) return toast.error('Selected file is not an encrypted file (.encrypted)');
+  if (![16, 24, 32].includes(privateKey.length)) {
+    return toast.error('Key length must be 16, 24, or 32 characters');
+  }
+  if (!fileName.endsWith('.encrypted')) {
+    return toast.error('Selected file is not an encrypted file (.encrypted)');
+  }
+  if (file.size > MAX_FILE_SIZE_BYTES) {
+    return toast.error(`File too large. Max allowed size is ${MAX_FILE_SIZE_MB}MB`);
+  }
 
   const reader = new FileReader();
   reader.onload = () => {
