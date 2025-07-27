@@ -1,0 +1,25 @@
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+}
+
+.icon i {
+  font-size: 40px;
+}
+
+.drop-zone:hover {
+  border-color: var(--primary);
+}
+
+.form-control:active,
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: var(--primary);
+}
+
+.btn-refresh {
+  background-color: hsl(225, 20%, 96%) !important;
+  border: 1px solid hsl(225, 20%, 96%) !important;
+}
