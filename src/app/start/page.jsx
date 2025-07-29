@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import DropZone from '@/components/DropZone';
 import InputKey from '@/components/InputKey';
@@ -11,11 +11,26 @@ import toast from 'react-hot-toast';
 const MAX_FILE_SIZE_MB = 200;
 const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 
+// Detect in-app browser
+function isInAppBrowser() {
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  const inAppKeywords = ['Instagram', 'FBAN', 'FBAV', 'Messenger', 'TikTok', 'Twitter', 'LinkedIn', 'WhatsApp'];
+
+  return inAppKeywords.some((keyword) => ua.includes(keyword));
+}
+
 export default function EncryptionPage() {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
   const [privateKey, setPrivateKey] = useState('');
   const fileInputRef = useRef(null);
+
+  // Alert in-app browser
+  useEffect(() => {
+    if (isInAppBrowser()) {
+      toast.error('You are opening this page from an in-app browser (Instagram, Facebook, etc.). Please open it in Chrome or another browser to enable downloading.', { duration: 6000 });
+    }
+  }, []);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
