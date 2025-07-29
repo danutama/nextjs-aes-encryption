@@ -16,6 +16,9 @@ const poppins = Poppins({
 export const metadata = {
   title: 'Next AES App',
   description: 'Encrypt & Decrypt files',
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({ children }) {

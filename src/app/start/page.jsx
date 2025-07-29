@@ -1,9 +1,10 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 import DropZone from '@/components/DropZone';
 import InputKey from '@/components/InputKey';
-import Footer from '@/components/Credit';
+import Credit from '@/components/Credit';
 import { encryptFile, decryptFile } from '@/utils/crypto';
 import toast from 'react-hot-toast';
 
@@ -54,7 +55,8 @@ export default function EncryptionPage() {
       <div className="text-center mb-4">
         <div className="mb-3 d-flex justify-content-center align-items-center">
           <span className="icon blue-pastel-1 d-flex justify-content-center align-items-center pt-1">
-            <i className="bi bi-shield-fill-check text-primary"></i>
+            {/* <i className="bi bi-shield-fill-check text-primary"></i> */}
+            <Image src="/logo-blue.png" alt="logo" className="img-logo" width={43} height={50} priority />
           </span>
         </div>
         <h1 className="mb-2 fw-bold">AES Security</h1>
@@ -80,7 +82,7 @@ export default function EncryptionPage() {
           </div>
 
           <div className="mt-4">
-            <Footer />
+            <Credit />
           </div>
         </div>
       </div>

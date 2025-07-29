@@ -13,7 +13,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Body styles */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -59,6 +58,10 @@ button:focus,
 button:active {
   outline: none;
   box-shadow: none;
+}
+
+.header-logo {
+  padding: 8px 11px;
 }
 
 /* ================== LOADING SCREEN SPINNER ==================== */

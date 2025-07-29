@@ -4,9 +4,9 @@
   border-radius: 50px;
 }
 
-.icon i {
+/* .icon i {
   font-size: 40px;
-}
+} */
 
 .drop-zone:hover {
   border-color: var(--primary);
