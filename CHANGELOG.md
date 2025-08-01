@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/danutama/nextjs-aes-encryption/compare/v1.2.1...v1.3.0) (2025-08-01)
+
+
+### Features
+
+* **ui:** add in-app browser detection with alert to open in Chrome or other browsers ([a760021](https://github.com/danutama/nextjs-aes-encryption/commit/a760021e2605f607342f5e9dd012f17d918d77fa))
+
 ### [1.2.1](https://github.com/danutama/nextjs-aes-encryption/compare/v1.2.0...v1.2.1) (2025-07-27)
 
 
