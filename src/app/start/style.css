@@ -1,3 +1,12 @@
+:root {
+  --gray: hsl(225, 20%, 96%);
+  --gray-2: hsl(225, 29%, 92%);
+}
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
 .icon {
   width: 80px;
   height: 80px;
@@ -8,18 +17,32 @@
   font-size: 40px;
 } */
 
+.drop-zone {
+ min-height: 200px;
+}
+
 .drop-zone:hover {
   border-color: var(--primary);
 }
 
+.form-control {
+  background-color: var(--gray) !important;
+}
+
 .form-control:active,
 .form-control:focus {
+  background-color: var(--gray);
   outline: none !important;
   box-shadow: none !important;
   border-color: var(--primary);
 }
 
 .btn-refresh {
-  background-color: hsl(225, 20%, 96%) !important;
-  border: 1px solid hsl(225, 20%, 96%) !important;
+  background-color: var(--gray) !important;
+  border: 1px solid var(--gray) !important;
+}
+
+.btn-refresh:hover {
+  background-color: var(--gray-2) !important;
+  border: 1px solid var(--gray-2) !important;
 }

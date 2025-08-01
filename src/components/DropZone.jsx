@@ -19,7 +19,7 @@ export default function DropZone({ file, fileName, fileInputRef, handleFileChang
   return (
     <div className="mb-4">
       <div
-        className={`card drop-zone rounded-3 text-center p-4 ${file ? 'bg-light' : 'bg-white'}`}
+        className={`card drop-zone rounded-3 text-center d-flex justify-content-center border-2 p-4 ${file ? 'bg-gray' : 'bg-white'}`}
         style={{ cursor: 'pointer' }}
         onClick={handleButtonClick}
         onDragOver={(e) => e.preventDefault()}
