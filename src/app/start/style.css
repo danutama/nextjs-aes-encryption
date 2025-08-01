@@ -18,7 +18,8 @@
 } */
 
 .drop-zone {
- min-height: 200px;
+  min-height: 200px;
+  border-color: var(--gray-2) !important;
 }
 
 .drop-zone:hover {
@@ -27,6 +28,7 @@
 
 .form-control {
   background-color: var(--gray) !important;
+  border-color: var(--gray-2) !important;
 }
 
 .form-control:active,
